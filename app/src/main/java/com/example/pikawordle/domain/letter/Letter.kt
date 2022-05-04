@@ -2,14 +2,17 @@ package com.example.pikawordle.domain.letter
 
 import com.example.pikawordle.domain.enum.MyColor
 import com.example.pikawordle.domain.enum.MyLanguage
+import com.example.pikawordle.domain.word.Word
 
-class Letter (
-    oneLetter: Char,
-    language: MyLanguage = LANGUAGE,
-    color: MyColor = NEW_LETTER,
+data class Letter (
+    val oneLetter: Char,
+    val language: MyLanguage = LANGUAGE,
+    val color: MyColor = NEW_LETTER,
+    var id: Int = UNDEFINED_ID
     ){
     companion object {
         val NEW_LETTER = MyColor.grey
         val LANGUAGE = MyLanguage.ru
+        const val UNDEFINED_ID = -1
     }
 }

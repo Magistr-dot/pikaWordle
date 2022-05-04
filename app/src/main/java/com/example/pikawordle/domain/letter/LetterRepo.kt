@@ -1,5 +1,7 @@
 package com.example.pikawordle.domain.letter
 
+import com.example.pikawordle.domain.enum.MyColor
+
 interface LetterRepo {
     fun addLetter(letter: Letter) {
         TODO()
@@ -8,7 +10,10 @@ interface LetterRepo {
     fun deleteLetter(letter: Letter) {
         TODO()
     }
-    fun getLetter(letter: Letter) {
+    fun getLetter():List<Letter> {
+        TODO()
+    }
+    fun checkLetter(letter: Letter, color: MyColor):Letter {
         TODO()
     }
 }

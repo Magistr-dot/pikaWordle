@@ -2,10 +2,12 @@ package com.example.pikawordle.domain.word
 
 import com.example.pikawordle.domain.enum.MyLanguage
 
-class Word (
-    language: MyLanguage = LANGUAGE,
-    ){
+data class Word(
+    var language: MyLanguage = LANGUAGE,
+    var id: Int = UNDEFINED_ID
+) {
     companion object {
+        const val UNDEFINED_ID = -1
         val LANGUAGE = MyLanguage.ru
     }
 }
