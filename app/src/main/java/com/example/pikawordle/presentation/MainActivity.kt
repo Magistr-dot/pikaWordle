@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.example.pikawordle.R
+import com.example.pikawordle.domain.enum.MyColor
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
@@ -14,10 +15,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        viewModel.letterList.forEach { println(it) }
-        viewModel.
 
-        viewModel.deleteLetter(viewModel.letterList[0])
+
+
+        viewModel.deleteLetter(viewModel.letterList[2])
+        viewModel.letterList.forEach { println(it) }
+        print(viewModel.checkLetter(viewModel.letterList[9], MyColor.green))
+        viewModel.letterList.forEach { println(it) }
 //        viewModel.deleteShopList(ShopItem("Name 0",0,true,0))
 //        viewModel.editShopList(ShopItem("Name 1",1,true,1))
 //        viewModel.shopList.observe(this){

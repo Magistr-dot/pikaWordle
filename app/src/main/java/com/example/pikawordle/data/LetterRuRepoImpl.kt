@@ -26,7 +26,7 @@ object LetterRuRepoImpl : LetterRepo {
 
     override fun deleteLetter(letter: Letter) {
         letterScreenList.remove(letter)
-        updateList()
+       // updateList()
     }
 
     override fun getLetter(): List<Letter> {
@@ -34,10 +34,14 @@ object LetterRuRepoImpl : LetterRepo {
     }
 
     override fun checkLetter(letter: Letter, color: MyColor): Letter {
+        println(letterList)
         letterList.remove(letter)
         val newLetter = Letter(letter.oneLetter,letter.language, color, letter.id)
-        letterList[letter.id] = newLetter
-        updateList()
+
+        letterList.add(letter.id,newLetter)
+        println("new-$newLetter")
+        println(letterList)
+        letterList = letterList.toMutableList()
         return newLetter
     }
     private fun updateList() {
