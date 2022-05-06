@@ -13,7 +13,10 @@ interface LetterRepo {
     fun getLetter():List<Letter> {
         TODO()
     }
-    fun checkLetter(letter: Letter, color: MyColor):Letter {
+    fun checkLetter(id: Int, color: MyColor):Letter {
+        TODO()
+    }
+    fun getScreenLetter():MutableList<Letter> {
         TODO()
     }
 }

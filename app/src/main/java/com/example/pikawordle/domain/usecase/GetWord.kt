@@ -5,7 +5,7 @@ import com.example.pikawordle.domain.word.Word
 import com.example.pikawordle.domain.word.WordRepo
 
 class GetWord(private val wordRepo: WordRepo) {
-    fun getWord(word: Word): LiveData<Word> {
+    fun getWord(): Word {
         return wordRepo.getWord()
     }
 }

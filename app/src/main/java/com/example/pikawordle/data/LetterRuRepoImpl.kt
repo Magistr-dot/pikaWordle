@@ -6,10 +6,10 @@ import com.example.pikawordle.domain.letter.LetterRepo
 
 object LetterRuRepoImpl : LetterRepo {
 
-
+    private const val MAX_SIZE_SCREEN_LETTER = 4
     private var letterList = mutableListOf<Letter>()
     private var letterScreenList = mutableListOf<Letter>()
-   // private var LetterListLD = MutableLiveData<List<Letter>>()
+    // private var LetterListLD = MutableLiveData<List<Letter>>()
 
     init {
         for ((c, i) in ('а'..'я').withIndex()) {
@@ -20,32 +20,39 @@ object LetterRuRepoImpl : LetterRepo {
 
 
     override fun addLetter(letter: Letter) {
-        letterScreenList.add(letter)
-        updateList()
+        if (letterScreenList.size <= MAX_SIZE_SCREEN_LETTER) {
+            letterScreenList.add(letter)
+        }
+
     }
 
     override fun deleteLetter(letter: Letter) {
-        letterScreenList.remove(letter)
-       // updateList()
+        if (letterScreenList.size > 0) {
+            letterScreenList.remove(letter)
+        }
+
     }
 
     override fun getLetter(): List<Letter> {
         return letterList
     }
 
-    override fun checkLetter(letter: Letter, color: MyColor): Letter {
-        println(letterList)
-        letterList.remove(letter)
-        val newLetter = Letter(letter.oneLetter,letter.language, color, letter.id)
+    override fun getScreenLetter(): MutableList<Letter> {
+        return letterScreenList
+    }
 
-        letterList.add(letter.id,newLetter)
-        println("new-$newLetter")
-        println(letterList)
-        letterList = letterList.toMutableList()
+    override fun checkLetter(id: Int, color: MyColor): Letter {
+        // println(letterList)
+        val oldLetter = letterList[id]
+        letterList.remove(oldLetter)
+        val newLetter = Letter(oldLetter.oneLetter, oldLetter.language, color, oldLetter.id)
+        letterList.add(newLetter.id, newLetter)
+//        //println("new-$newLetter")
+//        //println(letterList)
+//        letterList = letterList.toMutableList()
+
         return newLetter
     }
-    private fun updateList() {
-        letterList = letterList.toMutableList()
-        letterScreenList = letterScreenList.toMutableList()
-    }
+
+
 }
