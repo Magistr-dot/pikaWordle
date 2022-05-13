@@ -23,14 +23,12 @@ object LetterRuRepoImpl : LetterRepo {
         if (letterScreenList.size <= MAX_SIZE_SCREEN_LETTER) {
             letterScreenList.add(letter)
         }
-
     }
 
     override fun deleteLetter(letter: Letter) {
         if (letterScreenList.size > 0) {
             letterScreenList.remove(letter)
         }
-
     }
 
     override fun getLetter(): List<Letter> {
@@ -42,17 +40,11 @@ object LetterRuRepoImpl : LetterRepo {
     }
 
     override fun checkLetter(id: Int, color: MyColor): Letter {
-        // println(letterList)
         val oldLetter = letterList[id]
         letterList.remove(oldLetter)
         val newLetter = Letter(oldLetter.oneLetter, oldLetter.language, color, oldLetter.id)
         letterList.add(newLetter.id, newLetter)
-//        //println("new-$newLetter")
-//        //println(letterList)
-//        letterList = letterList.toMutableList()
 
         return newLetter
     }
-
-
 }

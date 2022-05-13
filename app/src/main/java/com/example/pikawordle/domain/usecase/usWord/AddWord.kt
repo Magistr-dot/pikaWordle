@@ -1,4 +1,4 @@
-package com.example.pikawordle.domain.usecase
+package com.example.pikawordle.domain.usecase.usWord
 
 import com.example.pikawordle.domain.word.*
 

@@ -1,6 +1,5 @@
-package com.example.pikawordle.domain.usecase
+package com.example.pikawordle.domain.usecase.usWord
 
-import androidx.lifecycle.LiveData
 import com.example.pikawordle.domain.word.Word
 import com.example.pikawordle.domain.word.WordRepo
 

@@ -1,9 +1,6 @@
 package com.example.pikawordle.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.pikawordle.domain.enum.MyColor
-import com.example.pikawordle.domain.enum.MyLanguage
 import com.example.pikawordle.domain.letter.Letter
 import com.example.pikawordle.domain.word.Word
 import com.example.pikawordle.domain.word.WordRepo
@@ -11,7 +8,6 @@ import kotlin.random.Random
 
 object WordRepoImpl : WordRepo {
 
-    private var autoID = 0
     private val wordList = mutableListOf<Word>()
     //private var shopListLD = MutableLiveData <List<Word>>()
 
@@ -20,7 +16,6 @@ object WordRepoImpl : WordRepo {
             val item = Word("cкeт$i", id = c)
             addWord(item)
         }
-
     }
 
     override fun checkWord(word: Word, list: MutableList<Letter>) {
@@ -42,7 +37,6 @@ object WordRepoImpl : WordRepo {
     }
 
     override fun addWord(word: Word) {
-        println(wordList)
         wordList.add(word)
     }
 

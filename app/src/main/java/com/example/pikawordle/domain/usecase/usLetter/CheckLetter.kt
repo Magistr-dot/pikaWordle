@@ -1,4 +1,4 @@
-package com.example.pikawordle.domain.usecase
+package com.example.pikawordle.domain.usecase.usLetter
 
 import com.example.pikawordle.domain.enum.MyColor
 import com.example.pikawordle.domain.letter.Letter

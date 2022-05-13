@@ -2,11 +2,17 @@ package com.example.pikawordle.presentation
 
 import androidx.lifecycle.ViewModel
 import com.example.pikawordle.data.LetterRuRepoImpl
-import com.example.pikawordle.data.LetterRuRepoImpl.getLetter
+import com.example.pikawordle.data.UsersRepoImpl
 import com.example.pikawordle.data.WordRepoImpl
 import com.example.pikawordle.domain.enum.MyColor
 import com.example.pikawordle.domain.letter.Letter
-import com.example.pikawordle.domain.usecase.*
+import com.example.pikawordle.domain.usecase.usLetter.*
+import com.example.pikawordle.domain.usecase.usUsers.GetUsers
+import com.example.pikawordle.domain.usecase.usUsers.PushUser
+import com.example.pikawordle.domain.usecase.usWord.AddWord
+import com.example.pikawordle.domain.usecase.usWord.CheckWord
+import com.example.pikawordle.domain.usecase.usWord.GetWord
+import com.example.pikawordle.domain.users.Users
 import com.example.pikawordle.domain.word.Word
 
 class MainViewModel :ViewModel(){
@@ -45,6 +51,17 @@ class MainViewModel :ViewModel(){
 
     fun checkWord(item: Word, list: MutableList<Letter>){
         checkWord.checkWord(item, list)
+    }
+    //////
+    private val repositoryUsers = UsersRepoImpl
+    private val pushUser = PushUser(repositoryUsers)
+    private val getUsers = GetUsers(repositoryUsers)
+
+    fun pushUser(users: Users){
+        pushUser.pushUser(users)
+    }
+    fun getUsers(id:Int){
+        getUsers.getUsers(id)
     }
 
 }

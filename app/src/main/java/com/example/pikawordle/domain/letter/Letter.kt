@@ -2,7 +2,6 @@ package com.example.pikawordle.domain.letter
 
 import com.example.pikawordle.domain.enum.MyColor
 import com.example.pikawordle.domain.enum.MyLanguage
-import com.example.pikawordle.domain.word.Word
 
 data class Letter (
     val oneLetter: Char,

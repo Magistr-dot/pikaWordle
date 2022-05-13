@@ -1,6 +1,5 @@
 package com.example.pikawordle.domain.word
 
-import androidx.lifecycle.LiveData
 import com.example.pikawordle.domain.letter.Letter
 
 
