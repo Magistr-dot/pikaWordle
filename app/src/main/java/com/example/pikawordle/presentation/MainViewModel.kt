@@ -57,11 +57,14 @@ class MainViewModel :ViewModel(){
     private val pushUser = PushUser(repositoryUsers)
     private val getUsers = GetUsers(repositoryUsers)
 
+    val list = getUsers.getUsers(10)
+
     fun pushUser(users: Users){
         pushUser.pushUser(users)
     }
-    fun getUsers(id:Int){
-        getUsers.getUsers(id)
+
+    fun getUsers(id:Int):List<Users>{
+        return getUsers.getUsers(id)
     }
 
 }

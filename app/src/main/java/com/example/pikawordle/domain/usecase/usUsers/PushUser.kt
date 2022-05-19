@@ -5,6 +5,6 @@ import com.example.pikawordle.domain.users.UsersRepo
 
 class PushUser(private val usersRepo: UsersRepo) {
     fun pushUser(user: Users) {
-        return usersRepo.pushUser(user)
+        usersRepo.pushUser(user)
     }
 }
