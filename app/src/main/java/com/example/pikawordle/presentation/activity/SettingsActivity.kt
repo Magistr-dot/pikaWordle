@@ -1,16 +1,14 @@
-package com.example.pikawordle.presentation
+package com.example.pikawordle.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pikawordle.R
-import com.example.pikawordle.domain.enum.MyColor
-import com.example.pikawordle.domain.users.Users
-import java.util.*
+import com.example.pikawordle.presentation.MainViewModel
+import com.example.pikawordle.presentation.UsersListAdapter
 
-class MainActivity : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var usersListAdapter: UsersListAdapter
 
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecycler() {
-        val rvUsersList = findViewById<RecyclerView>(R.id.user_list)
+        val rvUsersList = findViewById<RecyclerView>(R.id.users_list)
 
         with(rvUsersList) {
             usersListAdapter = UsersListAdapter()

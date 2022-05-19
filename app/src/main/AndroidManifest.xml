@@ -9,14 +9,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PikaWordle">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.activity.GameActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".presentation.activity.SettingsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".presentation.activity.UserActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
