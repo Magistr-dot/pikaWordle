@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/pikaWordle/app/src/main/res/layout/activity_game.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/pikaWordle/app/src/main/res/layout/activity_main.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/pikaWordle/app/src/main/res/layout/activity_settings.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/pikaWordle/app/src/main/res/layout/activity_user.xml" value="0.40185185185185185" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/pikaWordle/app/src/main/res/layout/activity_users_high_score.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/pikaWordle/app/src/main/res/layout/item_shop_disabled.xml" value="0.3140625" />
         <entry key="..\:/Users/user/AndroidStudioProjects/pikaWordle/app/src/main/res/layout/setting_activity..xml" value="0.31354166666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/pikaWordle/app/src/main/res/layout/user_item.xml" value="0.33" />

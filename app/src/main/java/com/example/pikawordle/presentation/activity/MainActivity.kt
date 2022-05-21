@@ -16,9 +16,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val buttonAdd = findViewById<ImageButton>(R.id.high_score_button)
-        buttonAdd.setOnClickListener {
+        val buttonHS = findViewById<ImageButton>(R.id.high_score_button)
+        buttonHS.setOnClickListener {
             val intent = UserActivity.newIntent(this)
+            startActivity(intent)
+        }
+        val buttonGame = findViewById<ImageButton>(R.id.new_game_button)
+        buttonGame.setOnClickListener {
+            val intent = GameActivity.newIntent(this)
+            startActivity(intent)
+        }
+        val buttonSettings = findViewById<ImageButton>(R.id.settings_button)
+        buttonSettings.setOnClickListener {
+            val intent = SettingsActivity.newIntent(this)
             startActivity(intent)
         }
     }

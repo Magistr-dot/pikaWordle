@@ -7,37 +7,15 @@
     tools:context=".presentation.activity.MainActivity">
 
     <ImageButton
-        android:id="@+id/new_game_button"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/game"
-        android:contentDescription="@string/new_game"
-        app:layout_constraintBottom_toTopOf="@id/high_score_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-    <ImageButton
-        android:id="@+id/high_score_button"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/high_score"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/high_score"/>
-    <ImageButton
         android:id="@+id/settings_button"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="290dp"
         android:background="@drawable/settings"
+        android:contentDescription="@string/settings"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/high_score_button"
-        android:contentDescription="@string/settings"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
