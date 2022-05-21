@@ -4,4 +4,237 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activity.SettingsActivity"/>
+    tools:context=".presentation.activity.GameActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/first_line"
+            style="@style/CharLine"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_char_first_line"
+                style="@style/CharField"
+                android:layout_marginStart="10dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/second_char_first_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/third_char_first_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fourth_char_first_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fifth_char_first_line"
+                style="@style/CharField" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/second_line"
+            style="@style/CharLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/first_line">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_char_second_line"
+                style="@style/CharField"
+                android:layout_marginStart="10dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/second_char_second_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/third_char_second_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fourth_char_second_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fifth_char_second_line"
+                style="@style/CharField" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/third_line"
+            style="@style/CharLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/second_line">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_char_third_line"
+                style="@style/CharField"
+                android:layout_marginStart="10dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/second_char_third_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/third_char_third_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fourth_char_third_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fifth_char_third_line"
+                style="@style/CharField" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/fourth_line"
+            style="@style/CharLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/third_line">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_char_fourth_line"
+                style="@style/CharField"
+                android:layout_marginStart="10dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/second_char_fourth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/third_char_fourth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fourth_char_fourth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fifth_char_fourth_line"
+                style="@style/CharField" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/fifth_line"
+            style="@style/CharLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fourth_line">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_char_fifth_line"
+                style="@style/CharField"
+                android:layout_marginStart="10dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/second_char_fifth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/third_char_fifth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fourth_char_fifth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fifth_char_fifth_line"
+                style="@style/CharField" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/sixth_line"
+            style="@style/CharLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fifth_line">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_char_sixth_line"
+                style="@style/CharField"
+                android:layout_marginStart="10dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/second_char_sixth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/third_char_sixth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fourth_char_sixth_line"
+                style="@style/CharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fifth_char_sixth_line"
+                style="@style/CharField" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/current_line"
+            style="@style/CharLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_char_current_line"
+                style="@style/CurrentCharField"
+                android:layout_marginStart="10dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/second_char_current_line"
+                style="@style/CurrentCharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/third_char_current_line"
+                style="@style/CurrentCharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fourth_char_current_line"
+                style="@style/CurrentCharField" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fifth_char_current_line"
+                style="@style/CurrentCharField" />
+
+            <Button
+                android:id="@+id/pull_button"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

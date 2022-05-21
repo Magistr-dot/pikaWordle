@@ -11,10 +11,13 @@ import com.example.pikawordle.presentation.MainViewModel
 import com.example.pikawordle.presentation.UsersListAdapter
 
 class GameActivity : AppCompatActivity() {
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        println(viewModel.word.name)
     }
 
     companion object {

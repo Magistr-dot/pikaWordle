@@ -12,10 +12,14 @@ object WordRepoImpl : WordRepo {
     //private var shopListLD = MutableLiveData <List<Word>>()
 
     init {
-        for ((c, i) in ('a'..'f').withIndex()) {
-            val item = Word("cкeт$i", id = c)
-            addWord(item)
-        }
+//        for ((c, i) in ('a'..'f').withIndex()) {
+//            val item = Word("cкeт$i", id = c)
+//            addWord(item)
+//        }
+        addWord(Word("clean",id = 1))
+        addWord(Word("house",id = 2))
+        addWord(Word("brick",id = 3))
+
     }
 
     override fun checkWord(word: Word, list: MutableList<Letter>) {
@@ -32,7 +36,6 @@ object WordRepoImpl : WordRepo {
     }
 
     override fun getWord(): Word {
-        println(wordList)
         return wordList.random(Random(10))
     }
 
