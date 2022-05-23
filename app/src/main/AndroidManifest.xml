@@ -16,9 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".presentation.activity.GameActivity"
-            android:exported="true"/>
+        <activity android:name=".presentation.activity.GameActivity"
+            android:windowSoftInputMode="stateAlwaysVisible">
+        </activity>
+
+
         <activity
             android:name=".presentation.activity.SettingsActivity"
             android:exported="true"/>

@@ -12,12 +12,11 @@ object LetterRuRepoImpl : LetterRepo {
     // private var LetterListLD = MutableLiveData<List<Letter>>()
 
     init {
-        for ((c, i) in ('а'..'я').withIndex()) {
+        for ((c, i) in ('a'..'z').withIndex()) {
             val letter = Letter(i, id = c)
             letterList.add(letter)
         }
     }
-
 
     override fun addLetter(letter: Letter) {
         if (letterScreenList.size <= MAX_SIZE_SCREEN_LETTER) {
