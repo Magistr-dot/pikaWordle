@@ -23,6 +23,7 @@ class MainViewModel :ViewModel(){
     private val addLetter = AddLetter(repository)
     private val getScreenLetter = GetScreenLetter(repository)
     private val checkLetter = CheckLetter(repository)
+    private val letterInList = LetterInList(repository)
 
     val letterList = getLetter.getLetter()
     val letterScreenList = getScreenLetter.getScreenLetter()
@@ -34,8 +35,11 @@ class MainViewModel :ViewModel(){
     fun checkLetter(id: Int, color: MyColor) {
         checkLetter.checkLetter(id, color)
     }
-    fun addLetter(item: Letter) {
-        addLetter.addLetter(item)
+    fun addLetter(item: Char ) {
+        addLetter.addLetter(letterList, item, letterScreenList)
+    }
+    fun letterInList(letter: Char): Letter? {
+        return letterInList.letterInList(letterList, letter)
     }
     ////
     private val repositoryWord = WordRepoImpl

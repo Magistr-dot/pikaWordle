@@ -17,11 +17,20 @@ object LetterRuRepoImpl : LetterRepo {
             letterList.add(letter)
         }
     }
+    override fun addLetter(list: List<Letter>, letter: Char, list1: MutableList<Letter>) {
+        if (list1.size <= MAX_SIZE_SCREEN_LETTER) {
+            println("stage1")
+            letterInList(list, letter)?.let { list1.add(it) }
+        } else println("error")
+    }
 
-    override fun addLetter(letter: Letter) {
-        if (letterScreenList.size <= MAX_SIZE_SCREEN_LETTER) {
-            letterScreenList.add(letter)
+    override fun letterInList(list: List<Letter>, letter: Char): Letter? {
+        list.forEach {
+            if (it.oneLetter == letter) {
+                return it
+            }
         }
+        return null
     }
 
     override fun deleteLetter(letter: Letter) {

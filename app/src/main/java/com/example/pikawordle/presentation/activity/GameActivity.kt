@@ -100,11 +100,11 @@ class GameActivity : AppCompatActivity() {
         val buttonCheck = findViewById<Button>(R.id.pull_button)
         buttonCheck.setOnClickListener {
 
-            // var charQ = q.text[0]
             println(viewModel.letterScreenList)
-            viewModel.letterList.forEach {
-
-            }
+//            if(charsET.contains())
+//            viewModel.letterList.forEach {
+//
+//            }
             println(viewModel.letterScreenList)
 
         }
