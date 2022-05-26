@@ -11,6 +11,7 @@ import com.example.pikawordle.domain.usecase.usUsers.GetUsers
 import com.example.pikawordle.domain.usecase.usUsers.PushUser
 import com.example.pikawordle.domain.usecase.usWord.AddWord
 import com.example.pikawordle.domain.usecase.usWord.CheckWord
+import com.example.pikawordle.domain.usecase.usWord.ExistsWord
 import com.example.pikawordle.domain.usecase.usWord.GetWord
 import com.example.pikawordle.domain.users.Users
 import com.example.pikawordle.domain.word.Word
@@ -26,7 +27,7 @@ class MainViewModel :ViewModel(){
     private val letterInList = LetterInList(repository)
 
     val letterList = getLetter.getLetter()
-    val letterScreenList = getScreenLetter.getScreenLetter()
+    var letterScreenList = getScreenLetter.getScreenLetter()
 
 
     fun deleteLetter(item: Letter) {
@@ -46,15 +47,21 @@ class MainViewModel :ViewModel(){
     private val getWord = GetWord(repositoryWord)
     private val addWord = AddWord(repositoryWord)
     private val checkWord = CheckWord(repositoryWord)
+    private val existsWord = ExistsWord(repositoryWord)
+
+
 
     val word = getWord.getWord()
 
+    fun existsWord (word: Word) :Boolean {
+        return existsWord.existsWord(word)
+    }
     fun addWord(item: Word) {
         addWord.addWord(item)
     }
 
-    fun checkWord(item: Word, list: MutableList<Letter>){
-        checkWord.checkWord(item, list)
+    fun checkWord(item: Word, list: MutableList<Letter>) : MutableList<Letter>{
+        return checkWord.checkWord(item, list)
     }
     //////
     private val repositoryUsers = UsersRepoImpl

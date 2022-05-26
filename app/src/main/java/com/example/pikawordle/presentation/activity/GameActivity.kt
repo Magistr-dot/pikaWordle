@@ -2,37 +2,38 @@ package com.example.pikawordle.presentation.activity
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Rect
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
-import android.view.View
-import android.view.View.FOCUS_LEFT
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.pikawordle.R
+import com.example.pikawordle.domain.word.Word
 import com.example.pikawordle.presentation.MainViewModel
 
 
 class GameActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
-    var firstChar: Char = '\u0000'
-    var secondChar: Char = '\u0000'
-    var thirdChar: Char = '\u0000'
-    var fourthChar: Char = '\u0000'
-    var fifthChar: Char = '\u0000'
 
     var charsET = mutableListOf<EditText>()
 
+    private lateinit var firstCharET: EditText
+    private lateinit var secondCharET: EditText
+    private lateinit var thirdCharET: EditText
+    private lateinit var fourthCharET: EditText
+    private lateinit var fifthCharET: EditText
 
-    lateinit var firstCharET: EditText
-    lateinit var secondCharET: EditText
-    lateinit var thirdCharET: EditText
-    lateinit var fourthCharET: EditText
-    lateinit var fifthCharET: EditText
+    private var state = "first"
+    private var end = false
+    private var wordInScreen = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +42,144 @@ class GameActivity : AppCompatActivity() {
         println(viewModel.word.name)
 
         initET()
-        val buttonCheck = initButton()
+        val buttonCheck = button()
         jumpFocusRight(buttonCheck)
         deleteChar()
 
+    }
+
+    private fun button(): Button? {
+        val buttonCheck = findViewById<Button>(R.id.pull_button)
+        buttonCheck.setOnClickListener {
+
+            end = false
+            viewModel.letterScreenList.clear()
+            wordInScreen = ""
+
+            addListScreen()
+
+            wordInVocabulary()
+
+            fillET()
+
+
+        }
+        return buttonCheck
+    }
+
+    private fun fillET() {
+        if (!end) {
+            viewModel.letterScreenList =
+                viewModel.checkWord(viewModel.word, viewModel.letterScreenList)
+
+            if (viewModel.letterScreenList.isNotEmpty() && !end) {
+
+                firstCharET = findViewById(
+                    resources.getIdentifier(
+                        "first_char_${state}_line",
+                        "id",
+                        packageName
+                    )
+                )
+                secondCharET = findViewById(
+                    resources.getIdentifier(
+                        "second_char_${state}_line",
+                        "id",
+                        packageName
+                    )
+                )
+                thirdCharET = findViewById(
+                    resources.getIdentifier(
+                        "third_char_${state}_line",
+                        "id",
+                        packageName
+                    )
+                )
+                fourthCharET = findViewById(
+                    resources.getIdentifier(
+                        "fourth_char_${state}_line",
+                        "id",
+                        packageName
+                    )
+                )
+                fifthCharET = findViewById(
+                    resources.getIdentifier(
+                        "fifth_char_${state}_line",
+                        "id",
+                        packageName
+                    )
+                )
+
+                firstCharET.setText(viewModel.letterScreenList[0].oneLetter.toString())
+                secondCharET.setText(viewModel.letterScreenList[1].oneLetter.toString())
+                thirdCharET.setText(viewModel.letterScreenList[2].oneLetter.toString())
+                fourthCharET.setText(viewModel.letterScreenList[3].oneLetter.toString())
+                fifthCharET.setText(viewModel.letterScreenList[4].oneLetter.toString())
+
+                firstCharET.setBackgroundColor(viewModel.letterScreenList[0].color.rgb)
+                secondCharET.setBackgroundColor(viewModel.letterScreenList[1].color.rgb)
+                thirdCharET.setBackgroundColor(viewModel.letterScreenList[2].color.rgb)
+                fourthCharET.setBackgroundColor(viewModel.letterScreenList[3].color.rgb)
+                fifthCharET.setBackgroundColor(viewModel.letterScreenList[4].color.rgb)
+
+                charsET[0].setText("")
+                charsET[1].setText("")
+                charsET[2].setText("")
+                charsET[3].setText("")
+                charsET[4].setText("")
+
+                findViewById<LinearLayoutCompat>(
+                    resources.getIdentifier(
+                        "${state}_line",
+                        "id",
+                        packageName
+                    )
+                ).visibility = VISIBLE
+                viewModel.letterScreenList.clear()
+
+                when (state) {
+                    "first" -> state = "second"
+                    "second" -> state = "third"
+                    "third" -> state = "fourth"
+                    "fourth" -> state = "fifth"
+                    "fifth" -> state = "sixth"
+                    "sixth" -> state = "endgame"
+                }
+            }
+
+        }
+    }
+
+    private fun wordInVocabulary() {
+        if (!end) {
+            wordInScreen = viewModel.letterScreenList.joinToString(separator = "") {
+                it.oneLetter.toString().uppercase()
+            }
+            if (viewModel.existsWord(Word(wordInScreen))) {
+                end = false
+            } else {
+                end = true
+                Toast.makeText(this, "$wordInScreen в словаре не найдено", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+    }
+
+    private fun addListScreen() {
+        charsET.forEach {
+
+            if (it.text.isNotEmpty() && viewModel.letterInList(it.text[0]) != null) {
+
+                viewModel.addLetter(it.text[0])
+            } else {
+                end = true
+                Toast.makeText(
+                    this,
+                    "Недостаточно букв или неправильная буква",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     private fun deleteChar() {
@@ -83,12 +218,17 @@ class GameActivity : AppCompatActivity() {
                 override fun afterTextChanged(s: Editable) {
 
                     if (s.length == 1) {
-                        when (it.id) {
-                            charsET[0].id -> charsET[1].requestFocus()
-                            charsET[1].id -> charsET[2].requestFocus()
-                            charsET[2].id -> charsET[3].requestFocus()
-                            charsET[3].id -> charsET[4].requestFocus()
-                            charsET[4].id -> buttonCheck!!.requestFocus()
+                        if (viewModel.letterInList(s[0]) == null) {
+                            Toast.makeText(this@GameActivity, "wrong symbol", Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            when (it.id) {
+                                charsET[0].id -> charsET[1].requestFocus()
+                                charsET[1].id -> charsET[2].requestFocus()
+                                charsET[2].id -> charsET[3].requestFocus()
+                                charsET[3].id -> charsET[4].requestFocus()
+                                charsET[4].id -> buttonCheck!!.requestFocus()
+                            }
                         }
                     }
                 }
@@ -96,23 +236,9 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun initButton(): Button? {
-        val buttonCheck = findViewById<Button>(R.id.pull_button)
-        buttonCheck.setOnClickListener {
-
-            println(viewModel.letterScreenList)
-//            if(charsET.contains())
-//            viewModel.letterList.forEach {
-//
-//            }
-            println(viewModel.letterScreenList)
-
-        }
-        return buttonCheck
-    }
-
 
     private fun initET() {
+
         for (i in 0..4) {
             when (i) {
                 0 -> charsET.add(i, findViewById(R.id.first_char_current_line))

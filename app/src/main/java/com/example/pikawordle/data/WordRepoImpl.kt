@@ -9,30 +9,31 @@ import kotlin.random.Random
 object WordRepoImpl : WordRepo {
 
     private val wordList = mutableListOf<Word>()
-    //private var shopListLD = MutableLiveData <List<Word>>()
+
 
     init {
-//        for ((c, i) in ('a'..'f').withIndex()) {
-//            val item = Word("cкeт$i", id = c)
-//            addWord(item)
-//        }
-        addWord(Word("clean",id = 1))
-        addWord(Word("house",id = 2))
-        addWord(Word("brick",id = 3))
+
+        addWord(Word("clean", id = 1))
+        addWord(Word("house", id = 2))
+        addWord(Word("brick", id = 3))
 
     }
 
-    override fun checkWord(word: Word, list: MutableList<Letter>) {
-
+    override fun checkWord(word: Word, list: MutableList<Letter>): MutableList<Letter> {
+        val newList = mutableListOf<Letter>()
         for ((c, i) in (list).withIndex()) {
             if (word.name.contains(i.oneLetter) && word.name[c] == i.oneLetter) {
                 //think
-                LetterRuRepoImpl.checkLetter(i.id, MyColor.green)
-
+                newList.add(LetterRuRepoImpl.checkLetter(i.id, MyColor.green))
             } else if (word.name.contains(i.oneLetter)) {
-                LetterRuRepoImpl.checkLetter(i.id, MyColor.yelow)
-            } else LetterRuRepoImpl.checkLetter(i.id, MyColor.black)
+                newList.add(LetterRuRepoImpl.checkLetter(i.id, MyColor.yelow))
+            } else newList.add(LetterRuRepoImpl.checkLetter(i.id, MyColor.black))
         }
+        return newList
+    }
+
+    override fun existsWord(word: Word): Boolean {
+        return true
     }
 
     override fun getWord(): Word {

@@ -5,7 +5,7 @@ import com.example.pikawordle.domain.word.Word
 import com.example.pikawordle.domain.word.WordRepo
 
 class CheckWord(private val wordRepo: WordRepo) {
-    fun checkWord(word: Word, list: MutableList<Letter>) {
-        wordRepo.checkWord(word, list)
+    fun checkWord(word: Word, list: MutableList<Letter>) : MutableList<Letter>{
+        return wordRepo.checkWord(word, list)
     }
 }

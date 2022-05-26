@@ -17,6 +17,7 @@ object LetterRuRepoImpl : LetterRepo {
             letterList.add(letter)
         }
     }
+
     override fun addLetter(list: List<Letter>, letter: Char, list1: MutableList<Letter>) {
         if (list1.size <= MAX_SIZE_SCREEN_LETTER) {
             println("stage1")
@@ -25,12 +26,14 @@ object LetterRuRepoImpl : LetterRepo {
     }
 
     override fun letterInList(list: List<Letter>, letter: Char): Letter? {
+
         list.forEach {
             if (it.oneLetter == letter) {
                 return it
             }
         }
         return null
+
     }
 
     override fun deleteLetter(letter: Letter) {
