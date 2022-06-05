@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "783895505748",
+    "project_id": "wordle-1c19a",
+    "storage_bucket": "wordle-1c19a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783895505748:android:7a346ad7a6c7bd1d8bb6c1",
+        "android_client_info": {
+          "package_name": "com.example.pikawordle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783895505748-bfvv2j8jk30jbhptc0gpghfna1e6gkoc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pikawordle",
+            "certificate_hash": "7e64fda28c3bf6ac16a9dd70b7f980eac06726a4"
+          }
+        },
+        {
+          "client_id": "783895505748-m21trcj8npqkal1gd9cpil83ei3a742i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKo3oHqpWOn52m0J9b62Rx_OG5MC3CVVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783895505748-m21trcj8npqkal1gd9cpil83ei3a742i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

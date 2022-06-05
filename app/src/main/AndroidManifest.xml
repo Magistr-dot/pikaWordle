@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pikawordle">
 
     <application
         android:allowBackup="true"
@@ -9,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PikaWordle">
         <activity
-            android:name=".presentation.activity.MainActivity"
+            android:name=".presentation.activity.LaunchActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,8 +20,9 @@
         <activity android:name=".presentation.activity.GameActivity"
             android:windowSoftInputMode="stateAlwaysVisible">
         </activity>
-
-
+        <activity
+            android:name=".presentation.activity.MainActivity"
+            android:exported="true"/>
         <activity
             android:name=".presentation.activity.SettingsActivity"
             android:exported="true"/>

@@ -43,6 +43,4 @@ object WordRepoImpl : WordRepo {
     override fun addWord(word: Word) {
         wordList.add(word)
     }
-
-
 }

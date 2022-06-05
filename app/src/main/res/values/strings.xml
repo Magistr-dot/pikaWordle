@@ -3,4 +3,6 @@
     <string name="new_game">New game</string>
     <string name="high_score">High_score</string>
     <string name="settings">Settings</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_out">Sign out</string>
 </resources>
